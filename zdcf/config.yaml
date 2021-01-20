@@ -1,0 +1,244 @@
+
+sources:
+  # 1ES0033: '1ES 0033+595'
+  # 1ES1011: '1ES 1011+496'
+  # 1ES1218: '1ES 1218+304'
+  1ES0229: '1ES 0229+200'
+  # PG1553:  'PG 1553+113'
+
+config:
+  1ES1011:
+    Fermi-LAT:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'VERITAS'
+        - 'Fermi'
+      titles:
+        - 'VERITAS'
+        - 'Fermi-LAT'
+      binning: 'nightly'
+      sampling:
+        - 1
+        - 6
+      lagRange:
+        - -200
+        - 200
+      legend: 'upper right'
+      xInfo: 0.03
+      yInfo: 0.91
+    Swift:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'VERITAS'
+        - 'Swift'
+      titles:
+        - 'VERITAS'
+        - 'Swift-XRT'
+      binning: 'nightly'
+      sampling:
+        - 1
+        - 1
+      lagRange:
+        - -200
+        - 200
+      legend: 'upper right'
+      xInfo: 0.28
+      yInfo: 0.92
+    tau-2:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'tau-1'
+        - 'tau-2'
+      titles:
+        - '$\tau < 1$'
+        - '$1 < \tau < 2$'
+      binning: 'nightly'
+      sampling:
+        - 1
+        - 1
+      lagRange:
+        - -200
+        - 200
+      legend: 'upper right'
+      xInfo: 0.03
+      yInfo: 0.91
+    tau-3:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'tau-1'
+        - 'tau-3'
+      titles:
+        - '$\tau < 1$'
+        - '$\tau > 2$'
+      binning: 'nightly'
+      sampling:
+        - 1
+        - 1
+      lagRange:
+        - -200
+        - 200
+      legend: 'upper right'
+      xInfo: 0.03
+      yInfo: 0.91
+
+  1ES1218:
+    Fermi-LAT:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'VERITAS'
+        - 'Fermi'
+      titles:
+        - 'VERITAS'
+        - 'Fermi-LAT'
+      binning: 'weekly'
+      sampling:
+        - 1
+        - 56
+      lagRange:
+        - 250
+        - 750
+      legend: 'upper right'
+      xInfo: 0.26
+      yInfo: 0.91
+    Swift:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'VERITAS'
+        - 'Swift'
+      titles:
+        - 'VERITAS'
+        - 'Swift-XRT'
+      binning: 'nightly'
+      sampling:
+        - 1
+        - 1
+      lagRange:
+        - 250
+        - 750
+      legend: 'upper right'
+      xInfo: 0.26
+      yInfo: 0.91
+    Swift-Fermi:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'Swift'
+        - 'Fermi'
+      titles:
+        - 'Swift-XRT'
+        - 'Fermi-LAT'
+      binning: 'weekly'
+      sampling:
+        - 1
+        - 56
+      lagRange:
+        - -200
+        - 200
+      legend: 'upper right'
+      xInfo: 0.26
+      yInfo: 0.91
+
+  PG1553:
+    Fermi-LAT:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'VERITAS'
+        - 'Fermi'
+      titles:
+        - 'VERITAS'
+        - 'Fermi-LAT'
+      binning: 'nightly'
+      sampling:
+        - 1
+        - 10
+      lagRange:
+        - 0
+        - 200
+      legend: 'upper right'
+      xInfo: 0.26
+      yInfo: 0.91
+    Swift:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'VERITAS'
+        - 'Swift'
+      titles:
+        - 'VERITAS'
+        - 'Swift-XRT'
+      binning: 'nightly'
+      sampling:
+        - 1
+        - 1
+      lagRange:
+        - -200
+        - 200
+      legend: 'upper right'
+      xInfo: 0.26
+      yInfo: 0.91
+
+  1ES0033:
+    # Fermi-LAT:
+    #   runSim: False
+    #   nSim: 100000
+    #   names:
+    #     - 'VERITAS'
+    #     - 'Fermi'
+    #   titles:
+    #     - 'VERITAS'
+    #     - 'Fermi-LAT'
+    #   binning: 'weekly'
+    #   sampling:
+    #     - 1
+    #     - 56
+    #   lagRange:
+    #     - -200
+    #     - 200
+    #   legend: 'upper right'
+    Swift:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'VERITAS'
+        - 'Swift'
+      titles:
+        - 'VERITAS'
+        - 'Swift-XRT'
+      binning: 'weekly'
+      sampling:
+        - 7
+        - 7
+      lagRange:
+        - -200
+        - 200
+      legend: 'lower right'
+      xInfo: 0.45
+      yInfo: 0.93
+
+  1ES0229:
+    Swift:
+      runSim: False
+      nSim: 100000
+      names:
+        - 'VERITAS'
+        - 'Swift'
+      titles:
+        - 'VERITAS'
+        - 'Swift-XRT'
+      binning: 'nightly'
+      sampling:
+        - 1
+        - 1
+      lagRange:
+        - -200
+        - 200
+      legend: 'upper right'
+      xInfo: 0.26
+      yInfo: 0.91

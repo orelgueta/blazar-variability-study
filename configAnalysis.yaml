@@ -1,0 +1,226 @@
+---
+
+batchFarm: True
+
+anasumFiles:
+  PG1553:  /lustre/fs19/group/cta/users/ogueta/veritas/VERITAS_EBL/PG1553/anasum/anasumCombined.root
+  1ES0033: /lustre/fs19/group/cta/users/ogueta/veritas/VERITAS_EBL/1ES0033/anasum/anasumCombined.root
+  1ES1218: /lustre/fs19/group/cta/users/ogueta/veritas/VERITAS_EBL/1ES1218/anasum/anasumCombined.root
+  PKS1424: /lustre/fs19/group/cta/users/ogueta/veritas/VERITAS_EBL/PKS1424/anasum/anasumCombined.root
+  1ES1011: /lustre/fs19/group/cta/users/ogueta/veritas/VERITAS_EBL/1ES1011/anasum/anasumCombined.root
+  1ES0502: /lustre/fs19/group/cta/users/ogueta/veritas/VERITAS_EBL/1ES0502/anasum/anasumCombined.root
+  1ES0229: /lustre/fs19/group/cta/users/ogueta/veritas/VERITAS_EBL/1ES0229/anasum/anasumCombined.root
+  RGBJ0710: /lustre/fs19/group/cta/users/ogueta/veritas/VERITAS_EBL/RGBJ0710/anasum/anasumCombined.root
+dates:
+  swift: 
+    - 53423  # This is exactly 147 weeks before the start day of Fermi
+    - 58465  # This is ~today
+  fermi: 
+    - 53423  # This is exactly 147 weeks before the start day of Fermi
+    - 58465  # This is ~today
+  veritas: 
+    - 54375  # This is exactly 11 weeks before the start day of Fermi
+    - 58465  # This is ~today
+
+  # 1ES1011 Flare
+  # swift: 
+  #   - 56600
+  #   - 56800
+  # fermi: 
+  #   - 56600
+  #   - 56800
+  # veritas: 
+  #   - 56600
+  #   - 56800
+
+fVar: False
+constFit: False
+
+spectralParameters:
+  PG1553: [0.15, 1, -4.78, 30]
+  1ES0033: [0.195, 0.4, -4.0, 30]
+  1ES1218: [0.195, 1, -3.39, 30]
+  PKS1424: [0.15, 0.3, -5.02, 30]
+  1ES1011: [0.195, 0.5, -3.66, 30]
+  1ES0502: [0.195, 0.5, -3.74, 30]
+  1ES0229: [0.195, 1, -3.01, 30]
+  RGBJ0710: [0.195, 1, -3.14, 30]
+
+EBL:
+  model: 'franceschini2008'
+  franceschini2008: 
+    title: Franceschini 2008
+    file: 'EBLmodels/Gamma-gamma-opacity-z-0-1.dat'
+  # gilmore2012:
+# modelEBL: gilmore2012
+sources:
+  1ES0033: '1ES 0033+595'
+  # 1ES0502: '1ES 0502+675'
+  # 1ES1011: '1ES 1011+496'
+  # 1ES1218: '1ES 1218+304'
+  # 1ES0229: '1ES 0229+200'
+  # RGBJ0710: 'RGB J0710+591'
+  # PG1553:  'PG 1553+113'
+  # PKS1424: 'PKS 1424+240'
+binning:
+  # yearly: 'yearly'
+  # monthly: 'monthly'
+  # weekly: 'monthly'
+  nightly: 'weekly'
+redshift:
+  # Redshifts of 1ES0033:
+  # Franceschini 2008: z = 0.334 + 0.032 - 0.032, upper limit z < 0.390
+  # Gilmore 2012: z = 0.329 + 0.036 - 0.029, upper limit z < 0.391
+  # Dominguez 2012: z = 0.323 + 0.037 - 0.024, upper limit z < 0.387
+  1ES0033: [0.33, 0.034, 0.034] # The uncertainties include both statistical and model uncertaintiy.
+  1ES0502: 0.341
+  1ES1011: 0.212
+  1ES1218: 0.182
+  1ES0229: 0.14
+  RGBJ0710: 0.125
+  PG1553:  0.43
+  PKS1424: 0.6
+bayesChange: 0.002699796063 # Corresponds to 3 sigma
+
+nBayesSims:
+  1ES0033: 
+    &defaultNsims 
+    15000
+  1ES0502: *defaultNsims
+  1ES1011: *defaultNsims
+  1ES1218: *defaultNsims
+  1ES0229: *defaultNsims
+  RGBJ0710: *defaultNsims
+  PG1553:  *defaultNsims
+  PKS1424: *defaultNsims
+
+correlation:
+  weighted: True
+
+dcf:
+  1ES0033:
+    &defaultDCF
+    minPeriod: -90
+    maxPeriod: 90
+    binWidth: 14
+    binning: ['nightly', 'weekly']
+  1ES0502: 
+    *defaultDCF
+  1ES1011: 
+    minPeriod: -90
+    maxPeriod: 90
+    binWidth: 6
+    binning: ['nightly', 'weekly']
+  1ES1218: 
+    *defaultDCF
+  1ES0229: 
+    *defaultDCF
+  RGBJ0710: 
+    *defaultDCF
+  PG1553:  
+    *defaultDCF
+  PKS1424: 
+    *defaultDCF
+
+fluxScale:
+  veritas: 1.e+10
+  fermi: 1.e+7
+
+fermi: 
+  baseDir: '/lustre/fs23/group/veritas/users/ogueta/fermi/variabilityStudy/'
+
+swift:
+  baseDir: '/afs/ifh.de/group/cta/scratch/ogueta/vts/variabilityStudy/organizedCode/swift/onlineTool/'
+  swiftSource:
+    # These are chosen based on level of agreement between the model and the data,
+    # and the available statistics in each mode.
+    1ES0033: 'mireia'
+    1ES0502: 'online'
+    1ES1011: 'online'
+    1ES1218: 'online'
+    1ES0229: 'online'
+    RGBJ0710: 'online'
+    PG1553: 'online'
+    PKS1424: 'online'
+  xrtMethod:
+    # These are chosen based on level of agreement between the model and the data,
+    # and the available statistics in each mode.
+    1ES0033: 'WT'
+    1ES0502: 'PC'
+    1ES1011: 'WT'
+    1ES1218: 'WT'
+    1ES0229: 'PC'
+    RGBJ0710: 'WT'
+    PG1553: 'WT'
+    PKS1424: 'PC'
+
+plot:
+  # FIXME check if these sizes can be shared between mwlLC and vheLC and if so change to lc
+  mwlLC:
+    xText: 0.285
+    yText: 0.89
+    xICRC: 0.7
+    yICRC: 0.91
+    textFont: 30
+    legendFont: 30
+    axesTitleFont: 30
+    axesLabelFont: 30
+  vheLC:
+    1ES0033:
+      xInfo: 0.26
+      yInfo: 0.75
+      xLegend: 0.25
+      yLegend: 0.87
+      xICRC: 0.42
+      yICRC: 0.91
+    1ES0502:
+      xInfo: 0.13
+      yInfo: 0.75
+      xLegend: 0.12
+      yLegend: 0.87
+      xICRC: 0.42
+      yICRC: 0.91
+    1ES1011:
+      xInfo: 0.75
+      yInfo: 0.93
+      xLegend: 0.01
+      yLegend: 0.81
+      xICRC: 0.43
+      yICRC: 0.91
+    1ES1218:
+      xInfo: 0.43
+      yInfo: 0.75
+      xLegend: 0.42
+      yLegend: 0.87
+      xICRC: 0.42
+      yICRC: 0.91
+    1ES0229:
+      xInfo: 0.76
+      yInfo: 0.75
+      xLegend: 0.75
+      yLegend: 0.87
+      xICRC: 0.42
+      yICRC: 0.91
+    PG1553: 
+      xInfo: 0.75
+      yInfo: 0.93
+      xLegend: 0.29
+      yLegend: 0.81
+      xICRC: 0.03
+      yICRC: 0.91
+    PKS1424: 
+      xInfo: 0.29
+      yInfo: 0.75
+      xLegend: 0.28
+      yLegend: 0.87
+      xICRC: 0.42
+      yICRC: 0.91
+    RGBJ0710:
+      xInfo: 0.80
+      yInfo: 0.93
+      xLegend: 0.53
+      yLegend: 0.87
+      xICRC: 0.42
+      yICRC: 0.91
+
+...
